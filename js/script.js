@@ -42,7 +42,7 @@
 
     const articleSelector = clickedElement.getAttribute('href');
 
-    console.log('articleSelector:', articleSelector)
+    console.log('articleSelector:', articleSelector);
 
     /* [DONE] find the correct article using the selector (value of 'href' attribute) */
 
@@ -55,7 +55,7 @@
     targetArticle.classList.add('active');
 
     console.log('active:', targetArticle);
-  }
+  };
 
   const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
@@ -73,7 +73,7 @@
       titleList.innerHTML = '';
     }
   
-    clearMessages()
+    clearMessages();
 
     /* [DONE] for each article */
 
