@@ -11,6 +11,7 @@
     event.preventDefault();
   
     const clickedElement = this;
+
     console.log('Link was clicked!');
     
     /* [DONE] remove class 'active' from all article links  */
@@ -18,6 +19,7 @@
     const activeLinks = document.querySelectorAll('.titles a.active');
 
     for(let activeLink of activeLinks){
+
       activeLink.classList.remove('active');
     }
 
@@ -30,6 +32,7 @@
     const activeArticles = document.querySelectorAll('.posts .active');
 
     for(let activeArticle of activeArticles){
+
       activeArticle.classList.remove('active');
     }
 
@@ -104,34 +107,62 @@
   function generateTags(){
     
     /* find all articles */
-    const articles = document.querySelectorAll(optArticleTagsSelector);
+
+    const articles = document.querySelectorAll(optArticleSelector);
+
     console.log('articles: ', articles);
   
     /* START LOOP: for every article: */
+
     for (let article of articles){
+
       /* find tags wrapper */
-      
-    }
-  
-      
-  
+
+      const titleList = article.querySelector(optArticleTagsSelector);
+
+      console.log('titleList: ', titleList);
+
       /* make html variable with empty string */
-  
+      
+      let html = '';
+
       /* get tags from data-tags attribute */
-  
+
+      const articleTags = article.getAttribute('data-tags');
+
+      console.log('articleTags: ', articleTags);
+
       /* split tags into array */
-  
+
+      const articleTagsArray = articleTags.split(' ');
+
+      console.log('articleTagsArray: ', articleTagsArray);
+
       /* START LOOP: for each tag */
-  
+      
+      for(let tag of articleTagsArray){
+          
         /* generate HTML of the link */
-  
+
+        const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
+
         /* add generated code to html variable */
-  
+        
+        html = html + linkHTML;
+
+        console.log('html: ', html);
+
       /* END LOOP: for each tag */
-  
+      }
       /* insert HTML of all the links into the tags wrapper */
-  
-    /* END LOOP: for every article: */
+      
+      titleList.innerHTML = html;
+
+      console.log('titleList.innerHTML: ', titleList.innerHTML);
+
+      /* END LOOP: for every article: */
+    }
+    
   }
   
   generateTags();
