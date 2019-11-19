@@ -3,6 +3,8 @@
 
   const templates = {
     articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+    tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
+    authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
     tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
     authorCloudLink: Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML),
   };
@@ -196,7 +198,7 @@
 
         const linkHTMLData = {id: tag, title: tag};
         
-        const linkHTML = templates.articleLink(linkHTMLData);
+        const linkHTML = templates.tagLink(linkHTMLData);
 
         /* add generated code to html variable */
         
@@ -374,7 +376,7 @@
 
       const linkHTMLData = {id: articleAuthor, title: articleAuthor};
       
-      const linkHTML = templates.articleLink(linkHTMLData);
+      const linkHTML = templates.authorLink(linkHTMLData);
 
       html = html + linkHTML;
 
